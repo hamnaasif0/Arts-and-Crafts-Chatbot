@@ -89,10 +89,17 @@ st.markdown("""
         padding: 10px 18px;
         background: #fff;
         font-size: 0.93rem;
+        color: #3d1f0f !important;
+        caret-color: #6b3f2a;
     }
     .stTextInput > div > div > input:focus {
         border-color: #6b3f2a;
         box-shadow: 0 0 0 2px #f0d5c0;
+        color: #3d1f0f !important;
+    }
+    .stTextInput > div > div > input::placeholder {
+        color: #b08070 !important;
+        opacity: 1;
     }
 
     /* Send button */
