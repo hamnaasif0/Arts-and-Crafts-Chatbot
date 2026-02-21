@@ -19,26 +19,26 @@ st.set_page_config(
 st.markdown("""
 <style>
     /* Background */
-    .stApp { background-color: #fdf6f0; }
+    .stApp { background-color: #f2f1f6; }
 
     /* Title */
     .chat-title {
         text-align: center;
         font-size: 2rem;
         font-weight: 700;
-        color: #6b3f2a;
+        color: #4a2878;
         margin-bottom: 0rem;
     }
     .chat-subtitle {
         text-align: center;
         font-size: 0.95rem;
-        color: #a0735a;
+        color: #7b5ea7;
         margin-bottom: 1.2rem;
     }
 
     /* Chat bubbles */
     .bubble-user {
-        background: #6b3f2a;
+        background: #6a3d9a;
         color: white;
         padding: 10px 16px;
         border-radius: 18px 18px 4px 18px;
@@ -50,8 +50,8 @@ st.markdown("""
         word-wrap: break-word;
     }
     .bubble-bot {
-        background: #fff3eb;
-        color: #3d1f0f;
+        background: #edeaf4;
+        color: #2d1b4e;
         padding: 10px 16px;
         border-radius: 18px 18px 18px 4px;
         margin: 6px 0;
@@ -59,53 +59,53 @@ st.markdown("""
         margin-right: auto;
         font-size: 0.93rem;
         line-height: 1.5;
-        border: 1px solid #e8c9b0;
+        border: 1px solid #c9b8e8;
         word-wrap: break-word;
     }
     .label-user {
         text-align: right;
         font-size: 0.72rem;
-        color: #a0735a;
+        color: #7b5ea7;
         margin-bottom: 2px;
     }
     .label-bot {
         text-align: left;
         font-size: 0.72rem;
-        color: #a0735a;
+        color: #7b5ea7;
         margin-bottom: 2px;
     }
 
     /* Divider */
     .chat-divider {
         border: none;
-        border-top: 1px solid #e8c9b0;
+        border-top: 1px solid #c9b8e8;
         margin: 0.8rem 0;
     }
 
     /* Input box styling */
     .stTextInput > div > div > input {
         border-radius: 24px;
-        border: 1.5px solid #c9956d;
+        border: 1.5px solid #9b72cf;
         padding: 10px 18px;
-        background: #fff;
+        background: #faf9fc;
         font-size: 0.93rem;
-        color: #3d1f0f !important;
-        caret-color: #6b3f2a;
+        color: #2d1b4e !important;
+        caret-color: #6a3d9a;
     }
     .stTextInput > div > div > input:focus {
-        border-color: #6b3f2a;
-        box-shadow: 0 0 0 2px #f0d5c0;
-        color: #3d1f0f !important;
+        border-color: #4a2878;
+        box-shadow: 0 0 0 2px #ddd5f0;
+        color: #2d1b4e !important;
     }
     .stTextInput > div > div > input::placeholder {
-        color: #b08070 !important;
+        color: #a990c8 !important;
         opacity: 1;
     }
 
     /* Send button */
     .stButton > button {
         border-radius: 24px;
-        background: #6b3f2a;
+        background: #6a3d9a;
         color: white;
         border: none;
         padding: 10px 28px;
@@ -114,15 +114,15 @@ st.markdown("""
         width: 100%;
     }
     .stButton > button:hover {
-        background: #a0735a;
+        background: #4a2878;
     }
 
     /* Quick suggestion chips */
     .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.5rem 0 1rem 0; }
     .chip {
-        background: #fff3eb;
-        border: 1px solid #c9956d;
-        color: #6b3f2a;
+        background: #edeaf4;
+        border: 1px solid #9b72cf;
+        color: #4a2878;
         border-radius: 20px;
         padding: 5px 14px;
         font-size: 0.8rem;
@@ -414,4 +414,4 @@ if st.button("🗑️ Clear chat", use_container_width=False):
     st.rerun()
 
 st.markdown('<hr class="chat-divider">', unsafe_allow_html=True)
-st.markdown('<div style="text-align:center; font-size:0.75rem; color:#bbb;">Hamna Asif — Roll No 16 | NLP Assignment Part A</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center; font-size:0.75rem; color:#a990c8;">Hamna Asif — Roll No 16 | NLP Assignment Part A</div>', unsafe_allow_html=True)
