@@ -1,7 +1,8 @@
-import re
+﻿import re
 import random
 import streamlit as st
 
+# ------------------- RULES -------------------
 RULES = [
 
     # --- Greetings ---
@@ -47,6 +48,51 @@ RULES = [
         ]
     ),
 
+    # --- Portraits ---
+    (
+        re.compile(r'\b(portrait|face drawing|head sketch)\b', re.IGNORECASE),
+        [
+            "Portraits are challenging but rewarding! Start with basic shapes to map the head and facial features.",
+            "When doing a portrait, observe proportions carefully. Light sketching first helps refine the final drawing."
+        ]
+    ),
+
+    # --- Sketching ---
+    (
+        re.compile(r'\b(sketch|drawing|line art|pencil sketch)\b', re.IGNORECASE),
+        [
+            "Sketching is the foundation of many art forms. Start with simple objects and gradually try more complex subjects.",
+            "Use light lines for your initial sketch and build up detail slowly. Practice makes perfect!"
+        ]
+    ),
+
+    # --- Sculpture ---
+    (
+        re.compile(r'\b(sculpture|clay|ceramic|modelling)\b', re.IGNORECASE),
+        [
+            "Sculpture can be done with clay, ceramic, or even recycled materials. Start small before attempting larger pieces.",
+            "Remember to keep your tools and hands clean, and let each layer dry if working with clay."
+        ]
+    ),
+
+    # --- Digital Art ---
+    (
+        re.compile(r'\b(digital art|photoshop|illustrator|procreate|tablet art)\b', re.IGNORECASE),
+        [
+            "Digital art offers endless possibilities! Experiment with brushes, layers, and effects in your favorite software.",
+            "For beginners, start with simple shapes and coloring before moving to advanced techniques like shading and blending."
+        ]
+    ),
+
+    # --- Pastels ---
+    (
+        re.compile(r'\b(pastel|soft pastel|oil pastel|chalk)\b', re.IGNORECASE),
+        [
+            "Pastels are great for soft, blended colors. Use a textured paper to help the pastel stick.",
+            "Layer colors gently and blend with fingers or blending stumps for smooth transitions."
+        ]
+    ),
+
     # --- Thank you ---
     (
         re.compile(r'\b(thank(s| you)|thx|appreciate it|helpful)\b', re.IGNORECASE),
@@ -66,39 +112,46 @@ RULES = [
     ),
 ]
 
-# --- Fallback responses (when no pattern matches) ---
 FALLBACKS = [
     "That's interesting! Could you tell me more about your arts and crafts project?",
     "I'm not sure I understood that. Could you rephrase?",
     "I'd love to help! Could you give me more detail about what you're trying to make?"
 ]
 
+# ------------------- RESPOND FUNCTION -------------------
 def respond(user_input: str) -> str:
     user_input = user_input.strip()
-
     for pattern, responses in RULES:
         match = pattern.search(user_input)
         if match:
             response_template = random.choice(responses)
             try:
                 groups = match.groups(default='')
-                response = response_template.format(*groups)
+                return response_template.format(*groups)
             except (IndexError, KeyError):
-                response = response_template
-            return response
-
+                return response_template
     return random.choice(FALLBACKS)
 
-st.title("Arts & Crafts ELIZA Chatbot")
+# ------------------- STREAMLIT GUI -------------------
+st.set_page_config(page_title="Arts & Crafts Chatbot", page_icon="🎨", layout="wide")
+st.title("🎨 Arts & Crafts ELIZA Chatbot")
 
 if "chat" not in st.session_state:
     st.session_state.chat = []
 
-user_input = st.text_input("You:")
+# Chat display box
+chat_container = st.container()
+with chat_container:
+    for speaker, msg in st.session_state.chat:
+        if speaker == "You":
+            st.markdown(f"<div style='text-align:right; background-color:#DCF8C6; padding:8px; border-radius:10px; margin:5px 0'>{msg}</div>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<div style='text-align:left; background-color:#F1F0F0; padding:8px; border-radius:10px; margin:5px 0'>{msg}</div>", unsafe_allow_html=True)
+
+# User input
+user_input = st.text_input("Type your message:", key="input")
 
 if st.button("Send") and user_input:
     st.session_state.chat.append(("You", user_input))
     st.session_state.chat.append(("Bot", respond(user_input)))
-
-for speaker, msg in st.session_state.chat:
-    st.write(f"{speaker}: {msg}")
+    st.experimental_rerun()  # rerun to refresh chat
