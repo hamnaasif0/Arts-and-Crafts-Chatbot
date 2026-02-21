@@ -25,7 +25,7 @@ RULES = [
         re.compile(r'(give me|suggest|recommend|what are|any)\s*(some\s*)?(ideas?|projects?|activities?|things to (make|do|craft))', re.IGNORECASE),
         [
             "Here are some fun project ideas:\n  1. Watercolour greeting cards\n  2. Macrame wall hanging\n  3. Paper quilling art\n  4. Tie-dye tote bags\n  5. Origami animals\nWould you like instructions for any of these?",
-            "You could try:\n  • Decoupage photo frames\n  • Friendship bracelet weaving\n  • Handmade candles\n  • Rock painting\n  • DIY journal covers\nWhich one interests you?"
+            "You could try:\n  - Decoupage photo frames\n  - Friendship bracelet weaving\n  - Handmade candles\n  - Rock painting\n  - DIY journal covers\nWhich one interests you?"
         ]
     ),
 
