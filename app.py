@@ -24,7 +24,7 @@ RULES = [
     (
         re.compile(r'(give me|suggest|recommend|what are|any)\s*(some\s*)?(ideas?|projects?|activities?|things to (make|do|craft))', re.IGNORECASE),
         [
-            "Here are some fun project ideas:\n  1. Watercolour greeting cards\n  2. Macramé wall hanging\n  3. Paper quilling art\n  4. Tie-dye tote bags\n  5. Origami animals\nWould you like instructions for any of these?",
+            "Here are some fun project ideas:\n  1. Watercolour greeting cards\n  2. Macrame wall hanging\n  3. Paper quilling art\n  4. Tie-dye tote bags\n  5. Origami animals\nWould you like instructions for any of these?",
             "You could try:\n  • Decoupage photo frames\n  • Friendship bracelet weaving\n  • Handmade candles\n  • Rock painting\n  • DIY journal covers\nWhich one interests you?"
         ]
     ),
@@ -33,7 +33,7 @@ RULES = [
     (
         re.compile(r'how (do i|can i|to)\s+(make|do|create|start|begin|learn)\s+(.+)', re.IGNORECASE),
         [
-            "Great choice! To get started with {2}, you will need the right materials first. Could you tell me your experience level — beginner, intermediate, or advanced?",
+            "Great choice! To get started with {2}, you will need the right materials first. Could you tell me your experience level: beginner, intermediate, or advanced?",
             "I'd love to walk you through {2}! Are you a complete beginner or have you tried something similar before?"
         ]
     ),
